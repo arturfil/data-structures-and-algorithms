@@ -8,6 +8,8 @@
 # Dynamic arrays, arrays in python are dynamic! DUH!
 
 # Demostrantion of how a dynamic array works from the python language
+
+### Lecture 1 ###
 import sys
 # set n
 n = 10
