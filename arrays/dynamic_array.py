@@ -2,8 +2,13 @@
 # Creating and Implementing the dynamic array ourselves using the 
 #   c type library built in and using objects with public and private methods
 import ctypes
+import sys
 
 class DynamicArray(object):
+  # here we define the attributes:
+    # n = number of elements populated
+    # capacity = the capcity of elements the array can have
+    # A = the actual array instantiated by the make function
   def __init__(self):
     self.n = 0
     self.capacity = 1
@@ -40,11 +45,17 @@ class DynamicArray(object):
     # here we are using a C library to make a pointer. (C language)
     return (new_cap * ctypes.py_object)()
 
-arr = DynamicArray()
-arr.append(1)
-print(len(arr))
-arr.append(2)
-print(len(arr))
-print(arr[0])
+# creating the array object upon our class:
+arr_test = DynamicArray()
 
-    
+def print_array_attr(ar):
+  print("\nThe array has {} elements".format(len(ar)))
+  print("And it has a capacity of {}".format(ar.capacity))
+  print("And the number of bytes: {}".format(sys.getsizeof(ar)))
+
+array_test = DynamicArray()
+
+for i in range(50):
+  arr_test.append(i)
+  print_array_attr(arr_test)
+
