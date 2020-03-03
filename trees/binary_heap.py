@@ -52,3 +52,5 @@ heapObj = MinHeap()
 heapObj.insertKey(3)
 heapObj.insertKey(2)
 heapObj.insertKey(1)
+
+print(heapObj)
