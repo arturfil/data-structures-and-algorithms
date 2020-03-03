@@ -23,9 +23,32 @@ class MinHeap:
 
   # Insert a new key 'k'
   def insertKey(self, k):
-    # heappush(self.heap, k)
-    pass
+    heappush(self.heap, k)
 
-def greeting(name):
-  return f"Hello {name}"
+  # Decrease value of key at index 'i' to new_val
+  # It is assumed that the new value is smaller than heap[i]
+  def decreaseKey(self, i, new_val):
+    self.heap[i] = new_val
+    while (i != 0 and self.heap[self.parent(i)] > self.heap[i]):
+      # Swap heap[i] with heap[parent(i)]
+      self.heap[i], self.heap[self.parent(i)] = (self.heap[self.parent(i), self.heap[i]])
+
+  # Method to remove minimum element from min heap
+  def extractMin(self):
+    return heappop(self.heap)
   
+  # This method will delte key at index i.
+  # first it changes the value to the most negative number which is neg. infinity
+  # then uses extractMin()
+  def deleteKey(self,i):
+    self.decreaseKey(i, float("-inf"))
+    self.extractMin()
+
+  # Get the minimum element fromthe heap
+  def getMin(self):
+    return self.heap[0]
+
+heapObj = MinHeap()
+heapObj.insertKey(3)
+heapObj.insertKey(2)
+heapObj.insertKey(1)
