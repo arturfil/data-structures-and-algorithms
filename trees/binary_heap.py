@@ -15,6 +15,7 @@
 from heapq import heappush, heappop, heapify
 
 class MinHeap:
+  
   def __init__(self):
     self.heap = []
 
