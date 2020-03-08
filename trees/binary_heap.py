@@ -20,7 +20,7 @@ class MinHeap:
     self.heap = []
 
   def parent(self, i):
-    return (i-1) / 2
+    return (i-1) // 2 # make sure you are using this division since we don't care for float numbers here
 
   # Insert a new key 'k'
   def insertKey(self, k):
@@ -30,9 +30,10 @@ class MinHeap:
   # It is assumed that the new value is smaller than heap[i]
   def decreaseKey(self, i, new_val):
     self.heap[i] = new_val
-    while (i != 0 and self.heap[self.parent(i)] > self.heap[i]):
-      # Swap heap[i] with heap[parent(i)]
-      self.heap[i], self.heap[self.parent(i)] = (self.heap[self.parent(i), self.heap[i]])
+    
+    while(i != 0 and self.heap[self.parent(i)] > self.heap[i]): 
+      # Swap heap[i] with heap[parent(i)] 
+      self.heap[i] , self.heap[self.parent(i)] = (self.heap[self.parent(i)], self.heap[i]) 
 
   # Method to remove minimum element from min heap
   def extractMin(self):
@@ -49,9 +50,16 @@ class MinHeap:
   def getMin(self):
     return self.heap[0]
 
-heapObj = MinHeap()
-heapObj.insertKey(3)
-heapObj.insertKey(2)
-heapObj.insertKey(1)
-
-print(heapObj)
+heapObj = MinHeap() 
+heapObj.insertKey(3) 
+heapObj.insertKey(2) 
+heapObj.deleteKey(1) 
+heapObj.insertKey(15) 
+heapObj.insertKey(5) 
+heapObj.insertKey(4) 
+heapObj.insertKey(45) 
+  
+print(heapObj.extractMin())
+print(heapObj.getMin())
+heapObj.decreaseKey(2, 1) 
+print(heapObj.getMin())
